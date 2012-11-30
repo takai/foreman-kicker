@@ -1,29 +1,16 @@
 # Foreman::Kicker
-
-TODO: Write a gem description
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'foreman-kicker'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install foreman-kicker
-
 ## Usage
+### RSpec
 
-TODO: Write usage instructions here
+```ruby
+RSpec.configure do |config|
+  config.before(:suite) do
+    Foreman::Kicker.kick '-p', '5000'
+    sleep 0.1 # wait for servers to start up
+  end
 
-## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+  config.after(:suite) do
+    Foreman::Kicker.stop
+  end
+end
+```
