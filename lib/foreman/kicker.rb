@@ -4,9 +4,9 @@ require "foreman/kicker/watchdog"
 
 module Foreman
   module Kicker
-    def self.kick
+    def self.kick(*args)
       @watchdog = Foreman::Kicker::Watchdog.new
-      @watchdog.start
+      @watchdog.start(*args)
     end
 
     def self.stop

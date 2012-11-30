@@ -1,7 +1,7 @@
 module Foreman
   module Kicker
     class Watchdog
-      def start
+      def start(*args)
         @pid = fork do
           trap(:TERM) do
             terminate(@executor.pid)
@@ -10,7 +10,7 @@ module Foreman
 
           loop do
             @executor = Executor.new
-            @executor.run
+            @executor.run(*args)
           end
         end
       end
