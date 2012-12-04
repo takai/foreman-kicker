@@ -7,9 +7,9 @@ Gem::Specification.new do |gem|
   gem.name          = "foreman-kicker"
   gem.version       = Foreman::Kicker::VERSION
   gem.authors       = ["Naoto Takai"]
-  gem.email         = ["takai@cookpad.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.email         = %w(takai@cookpad.com)
+  gem.description   = ""
+  gem.summary       = ""
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
