@@ -20,7 +20,7 @@ module Foreman
       end
 
       @watchdog = Foreman::Kicker::Watchdog.new
-      @watchdog.start(*args)
+      @watchdog.start(*args.map(&:to_s))
     end
 
     def self.stop
