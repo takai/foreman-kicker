@@ -23,6 +23,18 @@ module Foreman
       @watchdog.start(*args.map(&:to_s))
     end
 
+    def self.wait
+      loop do
+        begin
+          TCPSocket.open('127.0.0.1', self.port).close
+          break
+        rescue Errno::ECONNREFUSED
+          sleep 0.1
+          # ignored
+        end
+      end
+    end
+
     def self.stop
       @watchdog.stop
     end
